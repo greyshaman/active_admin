@@ -1,3 +1,5 @@
+@import "../mixins";
+
 // ----------------------------------- Helper class to apply to elements to make them sections
 .section, .panel{ @include section; }
 
