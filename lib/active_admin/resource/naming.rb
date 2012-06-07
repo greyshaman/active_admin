@@ -39,6 +39,16 @@ module ActiveAdmin
     class Name < ActiveModel::Name
 
       def initialize(klass, name = nil)
+        
+        unless name.nil?
+          case name
+          when Proc
+            name = name.call
+          else
+            name = name.to_s
+          end
+        end
+        
         if ActiveModel::Name.instance_method(:initialize).arity == 1
           super(proxy_for_initializer(klass, name))
         else
@@ -63,7 +73,14 @@ module ActiveAdmin
         end
 
         def name
-          @name
+          
+          case @name
+          when Proc
+            @name.call
+          else
+            @name.to_s
+          end
+          
         end
       end
 
