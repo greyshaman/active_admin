@@ -125,7 +125,7 @@ module ActiveAdmin
     end
 
   end
-
+  
 end
 
 ActiveAdmin::DependencyChecker.check!
