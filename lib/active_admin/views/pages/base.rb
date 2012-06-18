@@ -58,6 +58,7 @@ module ActiveAdmin
           div :id => "active_admin_content", :class => (skip_sidebar? ? "without_sidebar" : "with_sidebar") do
             build_main_content_wrapper
             build_sidebar unless skip_sidebar?
+            build_modal unless skip_modal?
           end
         end
 
@@ -121,7 +122,29 @@ module ActiveAdmin
         def skip_sidebar?
           sidebar_sections_for_action.empty? || assigns[:skip_sidebar] == true
         end
+        
+        # Returns the modal sections to render for the current action
+        def modal_sections_for_action
+          if active_admin_config && active_admin_config.modal_sections?
+            active_admin_config.modal_sections_for(params[:action], self)
+          else
+            []
+          end
+        end
 
+        # Renders the modal
+        def build_modal
+          div :id => "modal" do
+            modal_sections_for_action.collect do |modal|
+              modal_section(modal)
+            end
+          end
+        end
+        
+        def skip_modal?
+          modal_sections_for_action.empty? || assigns[:skip_modal] == true
+        end
+        
         # Renders the content for the footer
         def build_footer
           insert_tag view_factory.footer

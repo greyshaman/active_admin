@@ -97,5 +97,10 @@ module ActiveAdmin
     def sidebar(name, options = {}, &block)
       config.sidebar_sections << ActiveAdmin::SidebarSection.new(name, options, &block)
     end
+    
+    def modal(name, options = {}, &block)
+      config.modal_sections << ActiveAdmin::ModalSection.new(name, options, &block)
+    end
+    
   end
 end

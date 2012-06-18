@@ -30,6 +30,8 @@ de:
     logout: "Abmelden"
     sidebars:
       filters: "Filter"
+    modal:
+      loading: "wird geladen.."
     pagination:
       empty: "Keine %{model} gefunden"
       one: "Zeige <b>1</b> %{model}"

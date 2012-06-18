@@ -31,6 +31,7 @@ module ActiveAdmin
     include Resource::Controllers
     include Resource::PagePresenters
     include Resource::Sidebars
+    include Resource::Modals
     include Resource::ActionItems
     include Resource::Menu
     include Resource::Naming
@@ -60,6 +61,9 @@ module ActiveAdmin
     end
 
     def add_default_sidebar_sections
+    end
+    
+    def add_default_modal_sections
     end
     
     # Clears all the custom actions this page knows about

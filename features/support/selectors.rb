@@ -29,6 +29,9 @@ module HtmlSelectorsHelpers
     when /^the "([^"]*)" sidebar$/
       [:css, "##{$1.gsub(" ", '').underscore}_sidebar_section"]
 
+    when /^the "([^"]*)" modal$/
+      [:css, "##{$1.gsub(" ", '').underscore}_modal_section"]
+
     # This allows you to provide a quoted selector as the scope
     # for "within" steps as was previously the default for the
     # web steps:

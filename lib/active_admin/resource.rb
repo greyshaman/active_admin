@@ -6,6 +6,7 @@ require 'active_admin/resource/pagination'
 require 'active_admin/resource/naming'
 require 'active_admin/resource/scopes'
 require 'active_admin/resource/sidebars'
+require 'active_admin/resource/modals'
 require 'active_admin/resource/belongs_to'
 
 module ActiveAdmin
@@ -65,6 +66,7 @@ module ActiveAdmin
     include Naming
     include Scopes
     include Sidebars
+    include Modals
     include Menu
 
     # The class this resource wraps. If you register the Post model, Resource#resource_class

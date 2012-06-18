@@ -15,6 +15,8 @@ module ActiveAdmin
 
         # Dashboards don't have a sidebar
         def build_sidebar; end
+        
+        def build_modal; end
 
         def title
           I18n.t("active_admin.dashboard")
