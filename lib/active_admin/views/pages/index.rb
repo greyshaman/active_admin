@@ -5,7 +5,11 @@ module ActiveAdmin
       class Index < Base
 
         def title
-          active_admin_config.plural_resource_label
+          if config[:title].is_a? String
+            config[:title]
+          else
+            active_admin_config.plural_resource_label
+          end
         end
 
         def config
@@ -39,7 +43,8 @@ module ActiveAdmin
           #
           # If we don't reorder, there may be some columns referenced in the order
           # clause that requires the original select.
-          collection.reorder("").limit(1).exists?
+
+          !!collection.reorder("").first
         end
 
         def build_collection

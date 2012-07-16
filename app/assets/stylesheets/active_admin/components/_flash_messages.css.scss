@@ -1,6 +1,6 @@
 @import "../mixins";
 
-body.logged_in {
+&.logged_in {
   .flash {
     @include gradient(#f7f1d3, #f5edc5);
     @include text-shadow(#fafafa);
@@ -27,7 +27,7 @@ body.logged_in {
   }
 }
 
-body.logged_out {
+&.logged_out {
   .flash {
     @include no-shadow;
     @include text-shadow(#fff);
